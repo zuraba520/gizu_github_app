@@ -20,7 +20,7 @@ class AppTheme {
 
   static const white = Color.fromRGBO(255, 255, 255, 1);
   static const black = Color.fromRGBO(0, 0, 0, 1);
-  static const gray = Color.fromRGBO(13, 195, 252, 1.0);
+  static const gray = Color.fromRGBO(128, 130, 133, 1.0);
   static const backgroundOrange = Color.fromRGBO(124, 96, 85, 1.0);
   static const lightOrange = Color.fromRGBO(255, 145, 91, 1);
   static const veryLightOrange = Color.fromRGBO(253, 186, 164, 1.0);
@@ -36,6 +36,7 @@ class AppTheme {
     disabledBorder: InputBorder.none,
     hintStyle: fourteenGray,
     labelStyle: fourteen,
+
     contentPadding: EdgeInsets.only(left: 12, right: 12, bottom: 12),
   );
 
