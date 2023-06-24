@@ -1,0 +1,41 @@
+include: package:flutter_lints/flutter.yaml
+
+linter:
+
+  rules:
+    always_declare_return_types: true
+
+    always_put_required_named_parameters_first: true
+    always_use_package_imports: true
+
+    avoid_bool_literals_in_conditional_expressions: true
+    avoid_function_literals_in_foreach_calls: false
+
+    avoid_print: true
+    constant_identifier_names: false
+
+    prefer_constructors_over_static_methods: true
+
+    prefer_final_locals: true
+
+    prefer_null_aware_method_calls: true
+
+    prefer_single_quotes: true
+    sort_child_properties_last: true
+
+    sort_unnamed_constructors_first: true
+
+    unnecessary_await_in_return: true
+
+    unnecessary_lambdas: true
+    unnecessary_late: true
+
+    unnecessary_parenthesis: true
+
+    use_if_null_to_convert_nulls_to_bools: true
+
+    use_is_even_rather_than_modulo: true
+
+    use_named_constants: true
+
+    use_string_buffers: true
