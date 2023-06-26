@@ -6,8 +6,8 @@ import 'package:gizu_github_app/widgets/app_bars/default_app_bar.dart';
 import 'package:gizu_github_app/widgets/text_fields/default_text_field.dart';
 import 'package:provider/provider.dart';
 
-import '../theme/theme.dart';
-import '../widgets/lists/repository_list.dart';
+import 'package:gizu_github_app/theme/theme.dart';
+import 'package:gizu_github_app/widgets/lists/repository_list.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({
@@ -52,19 +52,20 @@ class _LandingPageState extends State<LandingPage> {
         themeSwitcher: true,
         hasBackBtn: false,
       ),
-      body: ListView(
-        padding: EdgeInsets.zero,
+      body: Column(
         children: [
           _buildTextField(),
           const SizedBox(
             height: 40,
           ),
-          Consumer<RepositoryProvider>(
-            builder: (__, repoProvider, _) {
-              return RepositoryList(
-                list: repoProvider.getRepositoryList,
-              );
-            },
+          Expanded(
+            child: Consumer<RepositoryProvider>(
+              builder: (__, repoProvider, _) {
+                return RepositoryList(
+                  list: repoProvider.getRepositoryList,
+                );
+              },
+            ),
           ),
         ],
       ),

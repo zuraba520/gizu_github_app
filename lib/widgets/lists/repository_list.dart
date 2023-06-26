@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../models/repository.dart';
-import '../../theme/theme.dart';
+import 'package:gizu_github_app/models/repository.dart';
+import 'package:gizu_github_app/theme/theme.dart';
 
 class RepositoryList extends StatelessWidget {
   const RepositoryList({
@@ -12,8 +12,6 @@ class RepositoryList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (__, index) {
         return _buildRepositoryWidget(list?[index]);
       },
@@ -25,14 +23,38 @@ class RepositoryList extends StatelessWidget {
     );
   }
 
-  Container _buildRepositoryWidget(repository) {
-    return Container(
-      color: AppTheme.lightOrange,
-      height: 30,
-      width: double.infinity,
-      child: Text(
-        '-${repository.id}  - ${repository.name}',
-      ),
+  Row _buildRepositoryWidget(Repository repository) {
+    return Row(
+      children: [
+        Image.network(
+          repository.ownerUrl,
+          width: 50,
+        ),
+        const SizedBox(
+          width: 12,
+        ),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                repository.name,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                child: Text(
+                  repository.description,
+                ),
+              ),
+              Text(
+                '${repository.owner} - ${repository.star}',
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(width: 12),
+        const Icon(Icons.favorite),
+      ],
     );
   }
 }
