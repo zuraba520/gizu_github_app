@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gizu_github_app/app.dart';
 import 'package:gizu_github_app/theme/theme.dart';
+import 'package:gizu_github_app/hive/setup_hive.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: AppTheme.lightOrange,
     ),
   );
+  await setupHive();
   runApp(const App());
 }

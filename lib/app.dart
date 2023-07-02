@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gizu_github_app/models/repository.dart';
+import 'package:gizu_github_app/pages/details_page.dart';
 import 'package:gizu_github_app/pages/favorites_page.dart';
 import 'package:gizu_github_app/pages/landing_page.dart';
 import 'package:gizu_github_app/pages/splash_screen.dart';
@@ -29,6 +31,10 @@ class App extends StatelessWidget {
                   SplashScreen.routeName: (_) => const SplashScreen(),
                   LandingPage.routeName: (_) => const LandingPage(),
                   FavoritesPage.routeName: (_) => const FavoritesPage(),
+                  DetailsPage.routeName: (BuildContext context) => DetailsPage(
+                        repository: ModalRoute.of(context)?.settings.arguments
+                            as Repository,
+                      ),
                 },
                 debugShowCheckedModeBanner: false,
                 theme: themeProvider.currentTheme,

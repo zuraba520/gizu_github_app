@@ -27,15 +27,14 @@ class _LandingPageState extends State<LandingPage> {
 
   @override
   void initState() {
-    debugPrint('initState');
     super.initState();
+    _search('github');
   }
 
   @override
   void dispose() {
     _controller.dispose();
     _debounce?.cancel();
-    debugPrint('dispose');
     super.dispose();
   }
 
