@@ -97,17 +97,19 @@ class _DetailsPageState extends State<DetailsPage> {
                     ),
                     ValueListenableBuilder(
                         valueListenable:
-                            Hive.box<Repository>('favorites').listenable(
-                          keys: [widget.repository.id],
-                        ),
+                            Hive.box<Repository>('favorites').listenable(),
                         builder: (context, repBox, _) {
                           final isFavorite =
                               repBox.containsKey(widget.repository.id);
                           return IconButton(
-                            onPressed: () => isFavorite
-                                ? repBox.deleteAt(widget.repository.id)
-                                : repBox.put(
-                                    widget.repository.id, widget.repository),
+                            onPressed: () {
+                              isFavorite
+                                  ? repBox.delete(widget.repository.id)
+                                  : repBox.put(
+                                      widget.repository.id,
+                                      widget.repository,
+                                    );
+                            },
                             icon: Icon(
                               isFavorite
                                   ? Icons.favorite
