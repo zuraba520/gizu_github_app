@@ -9,8 +9,15 @@ class RepositoryProvider with ChangeNotifier {
 
   List<Repository> get getRepositoryList => _repositoryList;
 
+  bool _loading = false;
+
+  bool get getLoading => _loading;
+
   Future<void> searchRepos(String v) async {
+    _loading = true;
+    notifyListeners();
     _repositoryList = await repoService.searchRepos(v);
+    _loading = false;
     notifyListeners();
   }
 }

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:gizu_github_app/pages/favorites_page.dart';
 import 'package:gizu_github_app/theme/theme.dart';
