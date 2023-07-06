@@ -15,13 +15,24 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  late final Timer _timer;
+
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(milliseconds: 1500),() {
+    _loadTimer();
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+
+  void _loadTimer() {
+    _timer = Timer(const Duration(milliseconds: 1500), () {
       Navigator.of(context).pushNamed(LandingPage.routeName);
     });
-
   }
 
   @override

@@ -6,6 +6,8 @@ import 'package:gizu_github_app/theme/theme.dart';
 import 'package:gizu_github_app/widgets/app_bars/default_app_bar.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+import '../widgets/default_snack_bar.dart';
+
 class DetailsPage extends StatefulWidget {
   const DetailsPage({
     required this.repository,
@@ -134,7 +136,7 @@ class _DetailsPageState extends State<DetailsPage> {
                     Clipboard.setData(
                       ClipboardData(text: widget.repository.gitUrl),
                     );
-                    // context.showSnackBar('link has copied');
+                    showSnackBar(context, 'link has copied');
                   },
                   Icons.commit,
                   'Git :   ',
