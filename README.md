@@ -4,6 +4,13 @@ A Flutter project on github.
 
 Flutter 3.10.0
 
+``` dart
+# github api 
+final query = 'Search epository name';
+final _host = 'https://api.github.com';
+final url = '_host/search/repositories?per_page=100&sort=stars&q=$query';
+```
+
 ## Test Task for Flutter Developer
 ### Minimum Requirements
 
@@ -59,3 +66,6 @@ As a bonus or extra, please complete any (or all) of the following:
 ● Add animations to the application.
 
 ● Implement a splash screen to fetch/load crucial data before the main page shows up.
+
+
+~~ Thanks for visiting! ~~
