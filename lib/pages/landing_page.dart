@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:gizu_github_app/providers/repository_provider.dart';
 import 'package:gizu_github_app/widgets/app_bars/default_app_bar.dart';
 import 'package:gizu_github_app/widgets/text_fields/default_text_field.dart';
@@ -59,13 +60,10 @@ class _LandingPageState extends State<LandingPage> {
             child: Consumer<RepositoryProvider>(
               builder: (__, repoProvider, _) {
                 if (repoProvider.getLoading) {
-                  return const Align(
-                    child: SizedBox(
-                      width: 70,
-                      height: 70,
-                      child: CircularProgressIndicator(
-                        color: AppTheme.darkOrange,
-                      ),
+                  return const  Align(
+                    child: SpinKitWave(
+                      color: AppTheme.darkOrange,
+                      size: 0,
                     ),
                   );
                 }

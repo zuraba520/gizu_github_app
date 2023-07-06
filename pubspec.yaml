@@ -25,6 +25,8 @@ dependencies:
   hive_flutter: ^1.1.0
   url_launcher: ^6.1.10
 
+  flutter_spinkit: ^3.1.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
