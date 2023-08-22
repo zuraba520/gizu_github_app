@@ -62,7 +62,7 @@ class _LandingPageState extends State<LandingPage> {
                 if (repoProvider.getLoading) {
                   return const  Align(
                     child: SpinKitWave(
-                      color: AppTheme.darkOrange,
+                      color: AppTheme.gray,
                       size: 0,
                     ),
                   );
