@@ -1,11 +1,11 @@
-import 'dart:async';//ტაიმერთან მუშაობისათვის
-import 'package:flutter/material.dart';//ვიჯეტებისათვის
-import 'package:flutter_spinkit/flutter_spinkit.dart';//ანიმაციებისათვის
+import 'dart:async';
+import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:gizu_github_app/providers/repository_provider.dart';
 import 'package:gizu_github_app/widgets/app_bars/default_app_bar.dart';
 import 'package:gizu_github_app/widgets/text_fields/default_text_field.dart';
-import 'package:provider/provider.dart';//პროვაიდერი
-import 'package:gizu_github_app/theme/theme.dart';//ჩასაკრასკისთვის
+import 'package:provider/provider.dart';
+import 'package:gizu_github_app/theme/theme.dart';
 import 'package:gizu_github_app/widgets/lists/repository_list.dart';
 //კლასი ლანდინგ ფეიჯის,
 class LandingPage extends StatefulWidget {
@@ -13,10 +13,10 @@ class LandingPage extends StatefulWidget {
     Key? key,
   }) : super(key: key);
 
-  static const routeName = '/landing';//სატი სტრიქონი,მარშრუტის წარმომადგენელი
+  static const routeName = '/landing';
 
   @override
-  State<LandingPage> createState() => _LandingPageState();//=> ანუ აბრუნებს ეს მეთოდი ლანდინგის მაგალითს
+  State<LandingPage> createState() => _LandingPageState();
 }
 
 class _LandingPageState extends State<LandingPage> {
@@ -37,22 +37,22 @@ class _LandingPageState extends State<LandingPage> {
     super.dispose();
   }
 
-  void _search(v) {//ტაიმერის შედგენა მილიწამის დაგვიანებით,ანუ 300 მილიწამის მერე უსერნამეს რო დავწერთ მერე მოძებნის
-    _debounce = Timer(const Duration(milliseconds: 300), () {//დებოუნცე მეხმარება იმაში რო ავარიდო თავი აპის გადაჭარბებას ეგრევე როარ მოძებნოს.ზ
-      Provider.of<RepositoryProvider>(context, listen: false).searchRepos(v);//და აი ამ სეარჩრეპოს დახმარებით ეძებს,თუ არსებობს მსგავსი სახელი
+  void _search(v) {
+    _debounce = Timer(const Duration(milliseconds: 300), () {
+      Provider.of<RepositoryProvider>(context, listen: false).searchRepos(v);
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(//მთლიანი გვერდის სტრუქტურას განსაზღვრავს
-      appBar: const DefaultAppBar(//ანუ ზევით როა სახელი გზ გული და დარქ-ნაითი ეგაა.
-        themeSwitcher: true,//თუ მართალია მოხდება თუ არა არმოხდება
-        hasBackBtn: false,//ეს < ამისთვის
+      appBar: const DefaultAppBar(
+        themeSwitcher: true,
+        hasBackBtn: false,
       ),
       body: Column(
         children: [
-          _buildTextField(),//ეს ააბრუნებს სტილისტური საძიებო ტექსტის ველს რომელსაც თავისი მნიშვნელობებიაქ საიზბოქსში
+          _buildTextField(),
           const SizedBox(
             height: 40,
           ),
@@ -61,14 +61,14 @@ class _LandingPageState extends State<LandingPage> {
               builder: (__, repoProvider, _) {
                 if (repoProvider.getLoading) {
                   return const  Align(
-                    child: SpinKitWave(//ეს უბრალოდ ანიმაცია არის,თუ გრძელდება
+                    child: SpinKitWave(
                       color: AppTheme.gray,
                       size: 0,
                     ),
                   );
                 }
                 return repoProvider.getRepositoryList.isNotEmpty
-                    ? RepositoryList(//თუ არის მოძებნის თუ არარის ახლიდან მოძებნეო წერს,რომელიც ქვევით ტექტსში ჩანს,და თავისი ფერიაქ მინიჭებული თემას გამოყენებით.
+                    ? RepositoryList(
                         list: repoProvider.getRepositoryList,
                       )
                     : const Text(
@@ -84,8 +84,7 @@ class _LandingPageState extends State<LandingPage> {
   }
 
   ClipRRect _buildTextField() {
-    return ClipRRect(// აი ეს კიდევ მომრგვალებული რო იყოს მაგისია საზღვრები ანუ,
-      // სხვანაირადაც შეიძლებოდა გაკეთება,როგორც მახსოვს,მაგრამ ანამ მირჩია ეს მეთოდი.
+    return ClipRRect(
       borderRadius: const BorderRadius.vertical(
         bottom: Radius.circular(45),
       ),
@@ -93,15 +92,15 @@ class _LandingPageState extends State<LandingPage> {
         color: AppTheme.lightOrange,
         padding: const EdgeInsets.all(16),
         height: 100,
-        child: ClipRRect(//იგივე მომრგვალება
+        child: ClipRRect(
           borderRadius: const BorderRadius.all(
             Radius.circular(45),
           ),
           child: Container(
             padding: const EdgeInsets.all(16),
             color: AppTheme.white,
-            child: DefaultTextField(//მორგებული ვიჯეტი
-                controller: _controller, onChanged: _search, hint: 'search'),//ეს თვითონ სადაც ვწერთ ნიქნეიმს იმისაა რო მოძებნეო გეუბნება
+            child: DefaultTextField(
+                controller: _controller, onChanged: _search, hint: 'search'),
           ),
         ),
       ),

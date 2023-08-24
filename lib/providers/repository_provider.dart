@@ -21,3 +21,9 @@ class RepositoryProvider with ChangeNotifier {
     notifyListeners();
   }
 }
+
+
+/// RepositoryProvider for searching repository information from
+/// repositoryService, getting repos with
+/// query. if it is searching the loading field is true.
+/// while it is searched -> false

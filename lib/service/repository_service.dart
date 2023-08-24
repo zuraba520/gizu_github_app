@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:gizu_github_app/models/repository.dart';
 
 class RepositoryService {
-  final _host = 'https://api.github.com';
+  final _host = 'https://api.github.com';//github api url
 
   Future<List<Repository>> searchRepos(String v) async {
     final response = await http.get(
@@ -17,3 +17,4 @@ class RepositoryService {
     }
   }
 }
+//ესკოდი პასუხისმგებელია გითჰაბის აპისთვის და მოთხოვნების შესასრულებლად

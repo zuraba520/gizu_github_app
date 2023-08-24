@@ -3,8 +3,10 @@ import 'package:hive/hive.dart';
 import 'package:gizu_github_app/models/repository.dart';
 
 class RepositoryAdapter extends TypeAdapter<Repository> {
+
   @override
   final int typeId = 0;
+
 
   @override
   Repository read(BinaryReader reader) {

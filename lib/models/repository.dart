@@ -43,3 +43,8 @@ class Repository {
   static List<Repository> fromJsonList(jsonList) =>
       jsonList.map<Repository>(Repository.fromJson).toList();
 }
+
+
+//ეს კოდი განსაზღვრავს Dart კლასის xs,
+// რომელიც წარმოადგენს GitHub xs და მოიცავს
+// მეთოდებს JSON მონაცემების საცავის ობიექტებში დესერიალიზებისთვის.

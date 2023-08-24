@@ -1,12 +1,12 @@
-import 'package:flutter/material.dart';//ვიჯეტებისათვის
-import 'package:gizu_github_app/theme/theme.dart';//ჩასაკრასკისთვის
+import 'package:flutter/material.dart';
+import 'package:gizu_github_app/theme/theme.dart';
 import 'package:gizu_github_app/widgets/app_bars/default_app_bar.dart';
-import 'package:hive_flutter/adapters.dart';//ადაპტერი
+import 'package:hive_flutter/adapters.dart';
 
 import 'package:gizu_github_app/models/repository.dart';
 import 'package:gizu_github_app/widgets/lists/repository_list.dart';
 
-class FavoritesPage extends StatelessWidget {//როგორც ყოველთვის კლასი შეიქმნა სახელი რაც შეიძლება რეალური,
+class FavoritesPage extends StatelessWidget {
   const FavoritesPage({
     Key? key,
   }) : super(key: key);
@@ -15,15 +15,15 @@ class FavoritesPage extends StatelessWidget {//როგორც ყოვე�
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(//გვერდის მთლიან სტრუქტურას განსაზღვრავს,როგორც სხვაგან სხვისას განსაზღვრავდა,იგივე ასპექტში
+    return Scaffold(
       appBar: const DefaultAppBar(
-        hasFavoriteBtn: false,//აიქონის ღილაკი რო აღარ იყოს,აღარ ჩანდეს,უშნოვდება მერე,და ლოგიკურად თუ თრუ იქნებოდა გამოჩნდებოდა
-        title: 'Favorites',//ნუ ეს სახელი ცენტრში რო მოსჩანს
+        hasFavoriteBtn: false,
+        title: 'Favorites',//
       ),
       body: ValueListenableBuilder(//ცვლილებებისათვის რო ნახოს,
         valueListenable: Hive.box<Repository>('favorites').listenable(),
-        builder: (context, repBox, _) {//ანუ აი რეპბოქსში ცარიელი არის მაშIნ აჩვენებს არარჩეული გაქო
-          return repBox.values.isEmpty//აქ კიდევ თუ არ გყავს,ან არ გეყოლება ფავორიტი რეპოზი.. მაშინ დაგიწერს ნო ფავორიტეს ცენტრში
+        builder: (context, repBox, _) {
+          return repBox.values.isEmpty
               ? Center(
                   child: Text(
                     'No favorites',
@@ -32,7 +32,7 @@ class FavoritesPage extends StatelessWidget {//როგორც ყოვე�
                     ),
                   ),
                 )
-              : RepositoryList(//თუ არჩეული არის კიდევ მაშინ გამოჩნდება
+              : RepositoryList(
                   list: repBox.values.toList(),
                 );
         },

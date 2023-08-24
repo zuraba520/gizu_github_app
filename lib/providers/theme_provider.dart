@@ -13,3 +13,7 @@ class ThemeProvider with ChangeNotifier {
     notifyListeners();
   }
 }
+
+//კოდი განსაზღვრავს ThemeProvider კლასს,
+// რომელიც მართავს აპლიკაციის თემის მდგომარეობას
+// ChangeNotifier მექანიზმის გამოყენებით.
